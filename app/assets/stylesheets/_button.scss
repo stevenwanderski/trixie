@@ -1,0 +1,17 @@
+.button {
+  background: $primary;
+  color: $white;
+  border: none;
+  padding: 14px 14px;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  border: solid 3px darken($primary, 7%);
+  display: inline-block;
+
+  &:hover {
+    background: lighten($primary, 5%);
+    text-decoration: none;
+  }
+}
