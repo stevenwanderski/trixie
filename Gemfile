@@ -19,6 +19,8 @@ gem 'devise'
 gem 'awesome_print'
 gem 'annotate'
 gem 'active_link_to'
+gem 'nested_form'
+gem 'jquery-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

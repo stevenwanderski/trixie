@@ -1,17 +1,15 @@
 .button {
-  background: $primary;
+  background: $black;
   color: $white;
   border: none;
-  padding: 14px 14px;
-  border-radius: 4px;
-  font-size: 18px;
-  font-weight: 600;
+  padding: 8px 8px;
+  font-size: 14px;
+  // font-weight: 600;
   cursor: pointer;
-  border: solid 3px darken($primary, 7%);
   display: inline-block;
 
   &:hover {
-    background: lighten($primary, 5%);
+    background: lighten($black, 50%);
     text-decoration: none;
   }
 }

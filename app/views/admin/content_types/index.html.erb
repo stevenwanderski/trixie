@@ -1,0 +1,12 @@
+<h1>Content Types</h1>
+
+<%= link_to 'Add Content Type', new_admin_content_type_path, class: 'button' %>
+<br><br>
+
+<% @content_types.each do |content_type| %>
+  <div>
+    <%= content_type.name %>
+    <%= link_to 'Edit', edit_admin_content_type_path(content_type) %>
+    <%= link_to 'Delete', admin_content_type_path(content_type), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>

@@ -6,7 +6,6 @@ h3 {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #333;
 }
 
 body {
@@ -27,13 +26,10 @@ hr {
 h1 {
   margin-bottom: 30px;
   font-size: 38px;
-  font-family: $font-secondary;
-  text-align: center;
 }
 
 h2 {
   font-size: 26px;
-  font-family: $font-secondary;
 }
 
 h3 {
@@ -66,8 +62,12 @@ td {
 }
 
 a {
-  color: #333;
+  color: blue;
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 
   &.active {
     color: #333;
@@ -106,8 +106,37 @@ a {
   &__title {
     font-size: 38px;
     margin-bottom: 30px;
-    font-family: $font-secondary;
+    font-family: $font-primary;
     font-weight: 700;
     text-align: center;
   }
+}
+
+html {
+  height: 100%;
+}
+
+.admin {
+  display: flex;
+  height: 100%;
+}
+
+.admin-aside {
+  background: $black;
+  color: $white;
+  padding: 40px 40px;
+  flex: 0 0 180px;
+
+  a {
+    color: $white;
+  }
+
+  &__title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.admin-main {
+  padding: 40px 40px;
 }
