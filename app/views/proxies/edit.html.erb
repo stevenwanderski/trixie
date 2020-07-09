@@ -1,0 +1,31 @@
+<h1>Edit Proxy</h1>
+
+<% if @proxy.errors.any? %>
+<ul class="errors">
+  <% @proxy.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for(@proxy) do |f| %>
+  <div class="form-item">
+    <%= f.label :name, class: 'label' %>
+    <%= f.text_field :name, class: 'input--text' %>
+  </div>
+
+  <div class="form-item">
+    <%= f.label :proxy_url, class: 'label' %>
+    <%= f.text_field :proxy_url, class: 'input--text' %>
+  </div>
+
+  <div class="form-item">
+    <%= f.label :target_url, class: 'label' %>
+    <%= f.text_field :target_url, class: 'input--text' %>
+  </div>
+
+  <div class="form-item">
+    <%= f.submit 'Save Proxy', class: 'button' %>
+    <%= link_to 'Delete', proxy_path(@proxy), method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>

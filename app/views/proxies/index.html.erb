@@ -1,0 +1,17 @@
+<h1>Hi Proxies.</h1>
+
+<%= link_to 'New Proxy', new_proxy_path, class: 'button' %>
+
+<br><br>
+
+<% if @proxies.any? %>
+  <% @proxies.each do |proxy| %>
+    <div>
+      <%= link_to proxy.name, edit_proxy_path(proxy) %><br>
+      <strong>Proxy URL:</strong> <%= proxy.proxy_url %> <br>
+      <strong>Target URL:</strong> <%= proxy.target_url %>
+    </div>
+
+    <hr>
+  <% end %>
+<% end %>

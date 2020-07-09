@@ -8,18 +8,16 @@
 
   <h3>Fields</h3>
   <%= f.fields_for :fields do |field_form| %>
-    <div class="form-item">
-      <div class="form-item">
-        <%= field_form.label :name, class: 'label' %>
+    <div class="form-item content-type-field">
+      <div class="field-item">
         <%= field_form.text_field :name, class: 'input--text' %>
       </div>
 
-      <div class="form-item">
-        <%= field_form.label :field_type, class: 'label' %>
+      <div class="field-item">
         <%= field_form.select :field_type, [['Text', 'text'], ['Radios', 'radios'], ['Checkboxes', 'checkboxes']], {}, class: 'input--select' %>
       </div>
 
-      <%= field_form.link_to_remove "Remove this field" %>
+      <%= field_form.link_to_remove "Remove" %>
     </div>
   <% end %>
 
@@ -27,3 +25,7 @@
 
   <%= f.button 'Save', class: 'button' %>
 <% end %>
+
+<br><br>
+
+<%= link_to 'Delete', admin_content_type_path(@content_type), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button' %>

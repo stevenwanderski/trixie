@@ -5,14 +5,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= favicon_link_tag asset_path('bee.svg') %>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Paytone+One:400,600,700,800&display=swap" rel="stylesheet">
-
+    <%= favicon_link_tag asset_path('bee.png') %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="admin">
+    <aside class="admin-aside">
+      <div class="admin-aside__title">
+        Trix
+      </div>
+
+      <div class="admin-aside__section">
+        <%= link_to 'Proxies', proxies_path %>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <%= yield %>
+    </main>
   </body>
 </html>

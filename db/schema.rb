@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_06_001228) do
+ActiveRecord::Schema.define(version: 2020_07_09_031256) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 2020_06_06_001228) do
     t.uuid "content_type_id", null: false
     t.string "field_type", null: false
     t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "proxies", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.text "proxy_url"
+    t.string "proxy_request_type"
+    t.text "target_url"
+    t.string "target_request_type"
+    t.uuid "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

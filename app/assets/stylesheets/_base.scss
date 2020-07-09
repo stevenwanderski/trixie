@@ -112,31 +112,44 @@ a {
   }
 }
 
-html {
-  height: 100%;
-}
-
 .admin {
-  display: flex;
-  height: 100%;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  height: 100vh;
 }
 
 .admin-aside {
   background: $black;
   color: $white;
   padding: 40px 40px;
-  flex: 0 0 180px;
 
   a {
     color: $white;
+    display: block;
+    padding: 5px 0;
   }
 
   &__title {
     font-size: 20px;
     margin-bottom: 20px;
+    font-weight: 600;
   }
 }
 
 .admin-main {
   padding: 40px 40px;
+  overflow-y: scroll;
+}
+
+.content-type-field {
+  display: flex;
+  align-items: center;
+
+  .form-item {
+    margin-right: 10px;
+  }
+}
+
+.field-item {
+  margin-right: 10px;
 }

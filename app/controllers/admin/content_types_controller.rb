@@ -11,7 +11,7 @@ class Admin::ContentTypesController < AdminController
     @content_type = ContentType.new(content_type_params)
 
     if @content_type.save
-      redirect_to admin_content_types_path
+      redirect_to edit_admin_content_type_path(@content_type)
     else
       render :new
     end
@@ -25,7 +25,7 @@ class Admin::ContentTypesController < AdminController
     @content_type = ContentType.find(params[:id])
 
     if @content_type.update(content_type_params)
-      redirect_to admin_content_types_path
+      redirect_to edit_admin_content_type_path(@content_type)
     else
       render :new
     end
@@ -35,7 +35,7 @@ class Admin::ContentTypesController < AdminController
     @content_type = ContentType.find(params[:id])
     @content_type.destroy!
 
-    redirect_back(fallback_location: admin_content_types_path)
+    redirect_to admin_content_types_path
   end
 
   private

@@ -5,8 +5,6 @@
 
 <% @content_types.each do |content_type| %>
   <div>
-    <%= content_type.name %>
-    <%= link_to 'Edit', edit_admin_content_type_path(content_type) %>
-    <%= link_to 'Delete', admin_content_type_path(content_type), method: :delete, data: { confirm: 'Are you sure?' } %>
+    <%= link_to content_type.name, edit_admin_content_type_path(content_type) %>
   </div>
 <% end %>

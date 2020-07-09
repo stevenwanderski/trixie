@@ -2,14 +2,13 @@
   background: $black;
   color: $white;
   border: none;
-  padding: 8px 8px;
+  padding: 10px 14px;
   font-size: 14px;
-  // font-weight: 600;
   cursor: pointer;
   display: inline-block;
 
   &:hover {
-    background: lighten($black, 50%);
+    background: lighten($black, 30%);
     text-decoration: none;
   }
 }
