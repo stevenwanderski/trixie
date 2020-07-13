@@ -10,19 +10,7 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body class="admin">
-    <aside class="admin-aside">
-      <div class="admin-aside__title">
-        Trix
-      </div>
-
-      <div class="admin-aside__section">
-        <%= link_to 'Proxies', proxies_path %>
-      </div>
-    </aside>
-
-    <main class="admin-main">
-      <%= yield %>
-    </main>
+  <body>
+    <%= yield %>
   </body>
 </html>

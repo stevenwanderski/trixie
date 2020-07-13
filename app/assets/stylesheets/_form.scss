@@ -3,9 +3,17 @@
   max-width: 500px;
 }
 
+.model-form {
+  .input--text {
+    max-width: 700px;
+  }
+}
+
 .input--text {
-  border: solid $gray-medium 2px;
+  border: 0;
+  border-bottom: solid $gray-medium 2px;
   padding: 10px;
+  padding-left: 0;
   display: block;
   max-width: 500px;
   width: 100%;
@@ -49,12 +57,19 @@
 .label {
   display: block;
   margin-bottom: 5px;
-  text-transform: uppercase;
-  font-size: 12px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .form-item {
   margin-bottom: 20px;
+}
+
+.form-actions {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-column-gap: 16px;
+  align-items: center;
 }
 
 .errors {

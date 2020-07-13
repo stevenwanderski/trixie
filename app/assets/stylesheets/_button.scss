@@ -3,9 +3,11 @@
   color: $white;
   border: none;
   padding: 10px 14px;
-  font-size: 14px;
+  font-size: 16px;
   cursor: pointer;
   display: inline-block;
+  border-radius: 20px;
+  text-decoration: none;
 
   &:hover {
     background: lighten($black, 30%);

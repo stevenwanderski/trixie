@@ -62,8 +62,8 @@ td {
 }
 
 a {
-  color: blue;
-  text-decoration: none;
+  color: $primary;
+  text-decoration: underline;
 
   &:hover {
     text-decoration: underline;
@@ -127,6 +127,7 @@ a {
     color: $white;
     display: block;
     padding: 5px 0;
+    text-decoration: none;
   }
 
   &__title {

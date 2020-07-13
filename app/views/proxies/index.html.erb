@@ -7,9 +7,11 @@
 <% if @proxies.any? %>
   <% @proxies.each do |proxy| %>
     <div>
-      <%= link_to proxy.name, edit_proxy_path(proxy) %><br>
-      <strong>Proxy URL:</strong> <%= proxy.proxy_url %> <br>
-      <strong>Target URL:</strong> <%= proxy.target_url %>
+      <p><%= link_to proxy.name, edit_proxy_path(proxy) %></p>
+      <p>
+        <strong>Proxy URL:</strong> <%= proxy.proxy_url %><br>
+        <strong>Target URL:</strong> <%= proxy.target_url %>
+      </p>
     </div>
 
     <hr>

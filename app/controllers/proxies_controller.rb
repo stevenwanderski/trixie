@@ -1,4 +1,4 @@
-class ProxiesController < ApplicationController
+class ProxiesController < AuthenticatedController
   def index
     @proxies = current_user.proxies.all
   end

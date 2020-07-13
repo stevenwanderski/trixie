@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Trix</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= favicon_link_tag asset_path('bee.png') %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body class="admin">
+    <aside class="admin-aside">
+      <div class="admin-aside__title">
+        Trix
+      </div>
+
+      <div class="admin-aside__section">
+        <%= link_to 'Proxies', proxies_path %>
+      </div>
+    </aside>
+
+    <main class="admin-main">
+      <%= yield %>
+    </main>
+  </body>
+</html>
