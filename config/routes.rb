@@ -3,9 +3,13 @@ Rails.application.routes.draw do
 
   resources :proxies
 
-  namespace :admin do
-    get '/dashboard', to: 'dashboard#index'
-
-    resources :content_types
+  namespace :dashboard do
+    resources :proxies
   end
+
+  # namespace :admin do
+  #   get '/dashboard', to: 'dashboard#index'
+  #
+  #   resources :content_types
+  # end
 end
