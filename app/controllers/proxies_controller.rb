@@ -1,9 +1,7 @@
 class ProxiesController < AuthenticatedController
   def show
-    proxy = Proxy.find(params[:id])
+    response = ProxyRequest.new(params).run!
 
-    ap "#{proxy.target_request_type.upcase} #{proxy.target_url}"
-
-    render plain: 'OK'
+    render json: response.body, response.code
   end
 end
