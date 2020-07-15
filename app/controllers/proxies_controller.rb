@@ -8,7 +8,10 @@ class ProxiesController < ApplicationController
   end
 
   def post
-    response = ProxyRequest.new(params).run!
+    user = User.find_by(slug: params[:user_slug])
+    proxy = user.proxies.find_by(slug: params[:proxy_slug])
+
+    response = ProxyRequest.new(proxy, params).run!
 
     render json: response.body, status: response.code
   end

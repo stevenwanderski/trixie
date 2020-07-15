@@ -12,12 +12,19 @@
 
   <body class="admin">
     <aside class="admin-aside">
-      <div class="admin-aside__title">
-        Trixie
+      <div class="admin-aside__top">
+        <div class="admin-aside__title">
+          Trixie
+        </div>
+
+        <div class="admin-aside__section">
+          <%= link_to 'Proxies', dashboard_proxies_path %>
+        </div>
       </div>
 
-      <div class="admin-aside__section">
-        <%= link_to 'Proxies', dashboard_proxies_path %>
+      <div class="admin-aside__bottom">
+        <%= link_to 'Settings', dashboard_settings_path %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
       </div>
     </aside>
 

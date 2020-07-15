@@ -62,8 +62,8 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.log_formatter = SilentLogger.new
-  config.log_formatter.add_silencer { |line| line.include?(' lib/') }
+  # config.log_formatter = SilentLogger.new
+  # config.log_formatter.add_silencer { |line| line.include?(' lib/') }
 
   HttpLogger.log_headers = false
 end

@@ -7,6 +7,7 @@
 #  name                :string
 #  proxy_request_type  :string
 #  proxy_url           :text
+#  slug                :string
 #  target_request_type :string
 #  target_url          :text
 #  created_at          :datetime         not null

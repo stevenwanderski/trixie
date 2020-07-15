@@ -1,8 +1,9 @@
 class ProxyRequest
-  attr_accessor :params
+  attr_accessor :proxy, :params
 
-  def initialize(params)
+  def initialize(proxy, params)
     @params = params
+    @proxy = proxy
   end
 
   def run!
@@ -34,10 +35,6 @@ class ProxyRequest
     end.to_h
   end
 
-  def proxy
-    @proxy ||= Proxy.find(proxy_id)
-  end
-
   def proxy_id
     params[:id]
   end
@@ -67,7 +64,7 @@ class ProxyRequest
         body: body,
         headers: headers
       })
-      
+
     when 'delete'
       HTTParty.delete(url, options)
     end

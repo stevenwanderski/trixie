@@ -3,10 +3,12 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 
-  get '/proxies/:id', to: 'proxies#get'
-  post '/proxies/:id', to: 'proxies#post'
+  get '/proxies/:user_slug/:proxy_slug', to: 'proxies#get'
+  post '/proxies/:user_slug/:proxy_slug', to: 'proxies#post'
 
   namespace :dashboard do
     resources :proxies
+    get '/settings', to: 'settings#index'
+    put '/settings', to: 'settings#update'
   end
 end
