@@ -21,6 +21,8 @@ gem 'annotate'
 gem 'active_link_to'
 gem 'nested_form'
 gem 'jquery-rails'
+gem 'http_logger'
+gem 'httparty'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

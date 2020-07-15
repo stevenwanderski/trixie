@@ -1,6 +1,17 @@
 class Dashboard::ProxiesController < AuthenticatedController
   def index
     @proxies = current_user.proxies.all
+
+    # url = 'https://jsonplaceholder.typicode.com/posts'
+    #
+    # response = HTTParty.post(url,
+    #   body: { title: 'bar' }.to_json,
+    #   headers: {
+    #     "Content-type": "application/json; charset=UTF-8"
+    #   }
+    # )
+    #
+    # ap JSON.parse(response.body)
   end
 
   def new
@@ -47,10 +58,17 @@ class Dashboard::ProxiesController < AuthenticatedController
       :proxy_url,
       :target_url,
       :target_request_type,
+      :body_format,
       proxy_params_attributes: [
         :id,
         :param_from,
         :param_to,
+        :_destroy
+      ],
+      proxy_headers_attributes: [
+        :id,
+        :name,
+        :value,
         :_destroy
       ]
     )
