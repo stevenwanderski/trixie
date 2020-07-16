@@ -1,6 +1,6 @@
 class Dashboard::SettingsController < AuthenticatedController
   def index
-    @token = SecureRandom.hex(20)
+    @token = current_user.token
     @user = current_user
   end
 

@@ -9,6 +9,7 @@
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
 #  slug                   :string
+#  token                  :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
@@ -24,4 +25,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :proxies
+
+  before_create :assign_token
+
+  def assign_token
+    self.token = SecureRandom.hex(20)
+  end
 end

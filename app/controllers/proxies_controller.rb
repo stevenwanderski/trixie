@@ -1,18 +1,41 @@
 class ProxiesController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :authenticate
 
   def get
-    response = ProxyRequest.new(params).run!
-
-    render json: response.body, status: response.code
+    render json: result.body, status: result.code
   end
 
   def post
-    user = User.find_by(slug: params[:user_slug])
-    proxy = user.proxies.find_by(slug: params[:proxy_slug])
+    render json: result.body, status: result.code
+  end
 
-    response = ProxyRequest.new(proxy, params).run!
+  def put
+    render json: result.body, status: result.code
+  end
 
-    render json: response.body, status: response.code
+  def patch
+    render json: result.body, status: result.code
+  end
+
+  def delete
+    render json: result.body, status: result.code
+  end
+
+  private
+
+  def authenticate
+    authenticate_or_request_with_http_token do |token, options|
+      @user = User.find_by(slug: params[:user_slug])
+      ActiveSupport::SecurityUtils.secure_compare(token, @user.token)
+    end
+  end
+
+  def proxy
+    @proxy ||= @user.proxies.find_by(slug: params[:proxy_slug])
+  end
+
+  def result
+    @result ||= ProxyRequest.new(proxy, params).run!
   end
 end
