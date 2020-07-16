@@ -1,0 +1,14 @@
+.flash {
+  padding: 20px;
+  color: $white;
+  margin-bottom: 20px;
+  font-size: 18px;
+
+  &--success {
+    background: $green;
+  }
+
+  &--error {
+    background: $red;
+  }
+}

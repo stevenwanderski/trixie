@@ -145,7 +145,7 @@ a {
   overflow-y: scroll;
 }
 
-.content-type-field {
+.form-item--inline {
   display: flex;
   align-items: center;
 
@@ -156,4 +156,5 @@ a {
 
 .field-item {
   margin-right: 10px;
+  flex-basis: 300px;
 }

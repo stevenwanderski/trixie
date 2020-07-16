@@ -22,5 +22,6 @@ class Proxy < ApplicationRecord
   accepts_nested_attributes_for :proxy_params, allow_destroy: true
   accepts_nested_attributes_for :proxy_headers, allow_destroy: true
 
-  validates_presence_of :name
+  validates :name, presence: true
+  validates :slug, uniqueness: true
 end

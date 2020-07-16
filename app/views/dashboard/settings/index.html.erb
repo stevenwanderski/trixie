@@ -1,13 +1,19 @@
 <h1>Settings</h1>
 
 <div class="form-item">
-  <strong>Token:</strong> <%= @token %>
+  <strong>Token:</strong> <%= @user.token %>
 </div>
 
 <%= form_for(@user, url: dashboard_settings_path, method: :put, html: { class: 'model-form' }) do |f| %>
   <div class="form-item">
     <%= f.label :slug, class: 'label' %>
     <%= f.text_field :slug, class: 'input--text' %>
+
+    <% if @user.errors[:slug].any? %>
+      <p class="error">
+        <strong>This value is has already been taken.</strong>
+      </p>
+    <% end %>
   </div>
 
   <div class="form-item form-actions">

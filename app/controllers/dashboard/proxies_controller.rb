@@ -14,6 +14,7 @@ class Dashboard::ProxiesController < AuthenticatedController
     if @proxy.save
       redirect_to dashboard_proxies_path, notice: 'Proxy created.'
     else
+      flash[:error] = 'Proxy could not be saved. Check below.'
       render :new
     end
   end
@@ -28,6 +29,7 @@ class Dashboard::ProxiesController < AuthenticatedController
     if @proxy.update(proxy_params)
       redirect_to dashboard_proxies_path, notice: 'Proxy updated.'
     else
+      flash[:error] = 'Proxy could not be saved. Check below.'
       render :edit
     end
   end

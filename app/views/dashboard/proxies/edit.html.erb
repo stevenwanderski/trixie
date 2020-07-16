@@ -4,14 +4,6 @@
   <strong><%= @proxy.proxy_request_type.try(:upcase) %></strong> /proxies/<%= current_user.slug %>/<%= @proxy.slug %>
 </div>
 
-<% if @proxy.errors.any? %>
-<ul class="errors">
-  <% @proxy.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-</ul>
-<% end %>
-
 <%= nested_form_for(@proxy, url: dashboard_proxy_path(@proxy), html: { class: 'model-form' }) do |f| %>
   <%= render 'form', f: f %>
 

@@ -1,13 +1,18 @@
 class Dashboard::SettingsController < AuthenticatedController
   def index
-    @token = current_user.token
     @user = current_user
   end
 
   def update
-    current_user.update!(user_params)
+    @user = current_user
 
-    redirect_to dashboard_settings_path
+    if @user.update(user_params)
+      flash[:notice] = 'Settings saved!'
+      redirect_to dashboard_settings_path
+    else
+      flash[:error] = 'Could not save settings. Check below.'
+      render :index
+    end
   end
 
   private

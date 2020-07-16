@@ -28,6 +28,8 @@ class User < ApplicationRecord
 
   before_create :assign_token
 
+  validates :slug, uniqueness: true
+
   def assign_token
     self.token = SecureRandom.hex(20)
   end

@@ -9,7 +9,7 @@
     <div>
       <p><%= link_to proxy.name, edit_dashboard_proxy_path(proxy) %></p>
       <p>
-        <strong><%= proxy.target_request_type.upcase %></strong> <%= current_user.slug %>/<%= proxy.slug %>
+        <strong><%= proxy.target_request_type.upcase %></strong> /proxies/<%= current_user.slug %>/<%= proxy.slug %>
       </p>
     </div>
 
