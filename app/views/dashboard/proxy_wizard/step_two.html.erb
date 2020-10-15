@@ -1,0 +1,34 @@
+<h1>New Proxy: Step 2</h1>
+
+<p>Supply the URL and request type for which you'd like to access your proxy.</p>
+<p>Example: <strong><code>POST /my-mailchimp-proxy</code></strong></p>
+
+<br>
+
+<%= form_for(@proxy, url: dashboard_proxy_wizard_update_path(@proxy), method: :put, html: { class: 'model-form' }) do |f| %>
+  <div class="form-item">
+    <%= f.label :slug, 'Proxy URL path', class: 'label' %>
+    <%= f.text_field :slug, class: 'input--text' %>
+  </div>
+
+  <div class="form-item">
+    <%= f.label :proxy_request_type, class: 'label' %>
+    <%= f.select :proxy_request_type,
+        [
+          ['POST', 'post'],
+          ['GET', 'get'],
+          ['PUT', 'put'],
+          ['PATCH', 'patch'],
+          ['DELETE', 'delete']
+        ],
+        {},
+        class: 'input--select'
+    %>
+  </div>
+
+  <%= hidden_field_tag :step, 2 %>
+
+  <div class="form-item form-actions">
+    <%= f.submit 'Next Step', class: 'button' %>
+  </div>
+<% end %>

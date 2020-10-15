@@ -1,0 +1,14 @@
+<h1>New Proxy: Step 1</h1>
+
+<p>Give the proxy a unique name by which you'll recognize it.</p>
+
+<%= form_for(@proxy, url: dashboard_proxy_wizard_path, html: { class: 'model-form' }) do |f| %>
+  <div class="form-item">
+    <%= f.label :name, class: 'label' %>
+    <%= f.text_field :name, class: 'input--text' %>
+  </div>
+
+  <div class="form-item form-actions">
+    <%= f.submit 'Next Step', class: 'button' %>
+  </div>
+<% end %>
