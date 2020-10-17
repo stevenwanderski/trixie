@@ -1,16 +1,16 @@
-<% if flash[:notice] %>
+<% if flash[:notice].present? %>
   <div class="flash flash--success">
     <%= flash[:notice] %>
   </div>
 <% end %>
 
-<% if flash[:alert] %>
+<% if flash[:alert].present? %>
   <div class="flash flash--error">
     <%= flash[:alert] %>
   </div>
 <% end %>
 
-<% if flash[:error] %>
+<% if flash[:error].present? %>
   <div class="flash flash--error">
     <%= flash[:error] %>
   </div>

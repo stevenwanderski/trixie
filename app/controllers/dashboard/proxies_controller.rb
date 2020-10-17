@@ -27,7 +27,7 @@ class Dashboard::ProxiesController < AuthenticatedController
     @proxy = current_user.proxies.find(params[:id])
 
     if @proxy.update(proxy_params)
-      redirect_to dashboard_proxies_path, notice: 'Proxy updated.'
+      redirect_to edit_dashboard_proxy_path(@proxy), notice: 'Proxy updated.'
     else
       flash[:error] = 'Proxy could not be saved. Check below.'
       render :edit

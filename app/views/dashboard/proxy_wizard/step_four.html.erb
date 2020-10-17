@@ -1,8 +1,10 @@
 <h1>New Proxy: Step 4</h1>
 
-<p>Supply any extra URL params or headers that you'd like to send along to the target API.</p>
+<div class="info">
+  <p>Supply any extra URL params or headers that you'd like to send along to the target API.</p>
+</div>
 
-<br>
+<hr>
 
 <%= nested_form_for(@proxy, url: dashboard_proxy_wizard_update_path(@proxy), method: :put, html: { class: 'model-form' }) do |f| %>
 <div class="form-section">

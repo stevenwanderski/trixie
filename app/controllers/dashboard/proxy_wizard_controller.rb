@@ -5,6 +5,8 @@ class Dashboard::ProxyWizardController < AuthenticatedController
 
   def step_two
     @proxy = current_user.proxies.find(params[:id])
+    @host = ENV['APP_HOST']
+    @slug = current_user.slug
   end
 
   def step_three
