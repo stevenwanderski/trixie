@@ -1,20 +1,22 @@
 class Dashboard::SlugController < AuthenticatedController
   def edit
-    ap current_user.errors[:slug]
-    @host = ENV['APP_HOST']
+    assign_host
   end
 
   def update
     if current_user.update(user_params)
-      redirect_to dashboard_proxies_path, notice: 'URL was saved! Now try creating your first proxy 🤗'
+      redirect_to dashboard_proxy_wizard_step_one_path, notice: "Great! Let's create a proxy now."
     else
-      @host = ENV['APP_HOST']
-      # flash.now[:error] = 'Could not save.'
+      assign_host
       render :edit
     end
   end
 
   private
+
+  def assign_host
+    @host = ENV['APP_HOST']
+  end
 
   def user_params
     params.require(:user).permit(:slug)

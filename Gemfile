@@ -37,3 +37,12 @@ group :development do
 
   gem 'guard-livereload', '~> 2.5', require: false
 end
+
+group :test do
+  gem 'capybara'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 4.0.1'
+  gem 'factory_bot_rails'
+end
