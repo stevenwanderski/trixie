@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   namespace :dashboard do
     resources :proxies
+    get '/slug', to: 'slug#edit'
+    put '/slug', to: 'slug#update'
 
     get '/proxy_wizard/new/step_one', to: 'proxy_wizard#step_one', as: :proxy_wizard_step_one
     get '/proxy_wizard/:id/step_two', to: 'proxy_wizard#step_two', as: :proxy_wizard_step_two
