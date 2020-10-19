@@ -61,6 +61,11 @@ class Dashboard::ProxyWizardController < AuthenticatedController
       :target_request_type,
       :body_format,
       :slug,
+      cors_hosts_attributes: [
+        :id,
+        :host,
+        :_destroy
+      ],
       proxy_params_attributes: [
         :id,
         :param_from,
