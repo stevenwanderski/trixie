@@ -16,11 +16,13 @@
 #
 class Proxy < ApplicationRecord
   belongs_to :user
+  has_many :cors_hosts, dependent: :destroy
   has_many :proxy_params, dependent: :destroy
   has_many :proxy_headers, dependent: :destroy
 
-  accepts_nested_attributes_for :proxy_params, allow_destroy: true
+  accepts_nested_attributes_for :cors_hosts, allow_destroy: true
   accepts_nested_attributes_for :proxy_headers, allow_destroy: true
+  accepts_nested_attributes_for :proxy_params, allow_destroy: true
 
   validates :name, presence: true
   validates :slug, uniqueness: true

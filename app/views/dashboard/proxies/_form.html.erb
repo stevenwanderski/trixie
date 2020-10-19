@@ -65,6 +65,21 @@
 </div>
 
 <div class="form-section">
+  <h3>Allowed Hosts</h3>
+  <%= f.fields_for :cors_hosts do |ff| %>
+    <div class="form-item form-item--inline">
+      <div class="field-item">
+        <%= ff.text_field :host, class: 'input--text', placeholder: 'Host' %>
+      </div>
+
+      <%= ff.link_to_remove "Remove" %>
+    </div>
+  <% end %>
+
+  <p><%= f.link_to_add "Add an allowed host", :cors_hosts %></p>
+</div>
+
+<div class="form-section">
   <h3>Query Params</h3>
   <%= f.fields_for :proxy_params do |ff| %>
     <div class="form-item form-item--inline">

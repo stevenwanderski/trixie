@@ -18,7 +18,7 @@
       </span>
 
       <div class="form-field">
-        <%= f.text_field :slug, class: 'input--text input--inline' %>
+        <%= f.text_field :slug, class: 'input--text input--inline required' %>
       </div>
     </div>
 
@@ -33,3 +33,11 @@
     <%= f.submit 'Save', class: 'button' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $('form').validate({
+    messages: {
+      'user[slug]': false
+    }
+  });
+</script>
