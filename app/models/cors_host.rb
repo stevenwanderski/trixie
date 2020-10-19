@@ -9,4 +9,5 @@
 #  proxy_id   :uuid
 #
 class CorsHost < ApplicationRecord
+  belongs_to :proxy
 end
