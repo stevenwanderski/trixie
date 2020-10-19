@@ -1,7 +1,7 @@
-<h1>New Proxy: Step 2</h1>
+<h1>New Proxy: URL</h1>
 
 <div class="info">
-  <p>Supply the URL and TYPE for which you'd like to access your proxy.</p>
+  <p>This URL will be accessed from your front-end Javascript.</p>
 </div>
 
 <hr>
@@ -12,35 +12,46 @@
     html: { class: 'model-form' } do |f| %>
 
   <div class="form-section">
-    <div class="form-item">
-      <%= f.label :slug, 'Path', class: 'label' %>
+    <div class="form-item form-item--inline">
+      <div class="field-inline">
+        <%= f.select :proxy_request_type,
+            [
+              ['POST', 'post'],
+              ['GET', 'get'],
+              ['PUT', 'put'],
+              ['PATCH', 'patch'],
+              ['DELETE', 'delete']
+            ],
+            {},
+            class: 'input--select'
+        %>
+      </div>
 
       <span class="field-prefix">
         <%= @host %>/<%= @slug %>/
       </span>
 
-      <%= f.text_field :slug, class: 'input--text input--inline' %>
+      <%= f.text_field :slug, class: 'input--text input--inline required' %>
     </div>
 
-    <div class="form-item">
-      <%= f.label :proxy_request_type, 'Type', class: 'label' %>
-      <%= f.select :proxy_request_type,
-          [
-            ['POST', 'post'],
-            ['GET', 'get'],
-            ['PUT', 'put'],
-            ['PATCH', 'patch'],
-            ['DELETE', 'delete']
-          ],
-          {},
-          class: 'input--select'
-      %>
-    </div>
+    <% if @proxy.errors[:slug].any? %>
+      <div class="error form-item">
+        URL has already been taken. Try changing the path or the type.
+      </div>
+    <% end %>
 
     <%= hidden_field_tag :step, 2 %>
   </div>
 
   <div class="form-item form-actions">
-    <%= f.submit 'Next Step', class: 'button' %>
+    <%= f.submit 'Next', class: 'button' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $('form').validate({
+    messages: {
+      'proxy[slug]': false
+    }
+  });
+</script>

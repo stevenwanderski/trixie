@@ -25,5 +25,5 @@ class Proxy < ApplicationRecord
   accepts_nested_attributes_for :proxy_params, allow_destroy: true
 
   validates :name, presence: true
-  validates :slug, uniqueness: true
+  validates :slug, uniqueness: { scope: :proxy_request_type }
 end

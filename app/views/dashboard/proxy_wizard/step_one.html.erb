@@ -9,10 +9,18 @@
 <%= form_for(@proxy, url: dashboard_proxy_wizard_path, html: { class: 'model-form' }) do |f| %>
   <div class="form-item">
     <%= f.label :name, class: 'label' %>
-    <%= f.text_field :name, class: 'input--text' %>
+    <%= f.text_field :name, class: 'input--text required' %>
   </div>
 
   <div class="form-item form-actions">
-    <%= f.submit 'Next Step', class: 'button' %>
+    <%= f.submit 'Next', class: 'button' %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $('form').validate({
+    messages: {
+      'proxy[name]': false
+    }
+  });
+</script>

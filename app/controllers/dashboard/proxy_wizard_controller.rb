@@ -4,17 +4,17 @@ class Dashboard::ProxyWizardController < AuthenticatedController
   end
 
   def step_two
-    @proxy = current_user.proxies.find(params[:id])
-    @host = ENV['APP_HOST']
-    @slug = current_user.slug
+    assign_host
+    assign_proxy
+    assign_slug
   end
 
   def step_three
-    @proxy = current_user.proxies.find(params[:id])
+    assign_proxy
   end
 
   def step_four
-    @proxy = current_user.proxies.find(params[:id])
+    assign_proxy
   end
 
   def create
@@ -45,14 +45,40 @@ class Dashboard::ProxyWizardController < AuthenticatedController
 
       redirect_to path
     else
-      flash[:error] = 'Proxy could not be saved. Check below.'
-      render :edit
+      flash.now[:error] = 'Proxy could not be saved. Check below.'
+
+      case params[:step]
+        when '1'
+          render :step_one
+        when '2'
+          assign_host
+          assign_slug
+          render :step_two
+        when '3'
+          render :step_three
+        when '4'
+          render :step_four
+        end
     end
   end
 
   private
 
+  def assign_host
+    @host = ENV['APP_HOST']
+  end
+
+  def assign_proxy
+    @proxy = current_user.proxies.find(params[:id])
+  end
+
+  def assign_slug
+    @slug = current_user.slug
+  end
+
   def proxy_params
+    return {} if params[:proxy].blank?
+
     params.require(:proxy).permit(
       :name,
       :proxy_url,
