@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/proxies/:user_slug/:proxy_slug', to: 'proxies#get'
   post '/proxies/:user_slug/:proxy_slug', to: 'proxies#post'
+  match '/proxies/:user_slug/:proxy_slug', to: 'proxies#post', via: :options
 
   namespace :dashboard do
     resources :proxies
