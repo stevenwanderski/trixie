@@ -80,25 +80,6 @@
 </div>
 
 <div class="form-section">
-  <h3>Query Params</h3>
-  <%= f.fields_for :proxy_params do |ff| %>
-    <div class="form-item form-item--inline">
-      <div class="field-item">
-        <%= ff.text_field :param_from, class: 'input--text', placeholder: 'From' %>
-      </div>
-
-      <div class="field-item">
-        <%= ff.text_field :param_to, class: 'input--text', placeholder: 'To' %>
-      </div>
-
-      <%= ff.link_to_remove "Remove" %>
-    </div>
-  <% end %>
-
-  <p><%= f.link_to_add "Add a query param", :proxy_params %></p>
-</div>
-
-<div class="form-section">
   <h3>Headers</h3>
   <%= f.fields_for :proxy_headers do |ff| %>
     <div class="form-item form-item--inline">

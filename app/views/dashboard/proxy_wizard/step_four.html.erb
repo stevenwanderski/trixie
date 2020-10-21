@@ -1,33 +1,25 @@
-<h1>New Proxy: Data and Query Params</h1>
+<h1>New Proxy: Allowed Hosts</h1>
 
 <div class="info">
-  <p>Supply any URL params or body data that should be included when making the request to the target API.</p>
-  <p>
-    The "From" value is the name of the param when requesting your custom proxy URL.<br>
-    The "To" value is the name of the param when requesting the target API.<br>
-    The value sent with the "From" param will be included as the "To" param.
-  </p>
+  <p>Supply the hosts that will be using the proxy. Any host not listed below will be blocked from using the proxy.</p>
+  <p>Hint: be sure to include <code>http://localhost</code> if you'd like to test from your local environment.</p>
 </div>
 
 <hr>
 
 <%= nested_form_for(@proxy, url: dashboard_proxy_wizard_update_path(@proxy), method: :put, html: { class: 'model-form' }) do |f| %>
   <div class="form-section">
-    <%= f.fields_for :proxy_params do |ff| %>
+    <%= f.fields_for :cors_hosts do |ff| %>
       <div class="form-item form-item--inline">
         <div class="field-item">
-          <%= ff.text_field :param_from, class: 'input--text', placeholder: 'From' %>
-        </div>
-
-        <div class="field-item">
-          <%= ff.text_field :param_to, class: 'input--text', placeholder: 'To' %>
+          <%= ff.text_field :host, class: 'input--text', placeholder: 'Host' %>
         </div>
 
         <%= ff.link_to_remove "Remove" %>
       </div>
     <% end %>
 
-    <p><%= f.link_to_add "Add a query param", :proxy_params %></p>
+    <p><%= f.link_to_add "Add an allowed host", :cors_hosts %></p>
   </div>
 
   <%= hidden_field_tag :step, 4 %>

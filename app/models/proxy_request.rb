@@ -18,10 +18,6 @@ class ProxyRequest
       [proxy_param.param_to, value]
     end.to_h
 
-    if proxy.body_format == 'json'
-      hash = hash.to_json
-    end
-
     hash
   end
 
