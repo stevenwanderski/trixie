@@ -1,41 +1,26 @@
 class ProxyRequest
-  attr_accessor :proxy, :params
-
-  def initialize(proxy, params)
-    @params = params
+  def initialize(proxy:, body:)
+    @body = body
     @proxy = proxy
   end
 
   def run!
-    request(url, method)
+    url = @proxy.target_url
+    method = @proxy.target_request_type
+    body = @body
+
+    request(url, method, body)
   end
 
   private
 
-  def body
-    hash = proxy.proxy_params.map do |proxy_param|
-      value = params[proxy_param.param_from]
-      [proxy_param.param_to, value]
-    end.to_h
-
-    hash
-  end
-
-  def method
-    proxy.target_request_type
-  end
-
   def headers
-    proxy.proxy_headers.map do |header|
+    @proxy.proxy_headers.map do |header|
       [header.name, header.value]
     end.to_h
   end
 
-  def proxy_id
-    params[:id]
-  end
-
-  def request(url, method)
+  def request(url, method, body)
     case method
     when 'get'
       HTTParty.get(url, {
@@ -64,9 +49,5 @@ class ProxyRequest
     when 'delete'
       HTTParty.delete(url, options)
     end
-  end
-
-  def url
-    proxy.target_url
   end
 end

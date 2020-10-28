@@ -10,4 +10,5 @@
 #  proxy_id   :uuid             not null
 #
 class ProxyHeader < ApplicationRecord
+  belongs_to :proxy
 end

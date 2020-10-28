@@ -39,11 +39,17 @@ class ProxiesController < ApplicationController
   end
 
   def assign_result
-    @result = ProxyRequest.new(@proxy, params).run!
+    @result = ProxyRequest.new(proxy: @proxy, body: params).run!
   end
 
   def set_headers
-    headers['Access-Control-Allow-Origin'] = @proxy.cors_hosts.map(&:host).join(',')
+    origin = request.headers['origin']
+
+    if @proxy.cors_hosts.map(&:host).include?(origin)
+      allow_origin = origin
+    end
+
+    headers['Access-Control-Allow-Origin'] = allow_origin
     headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
     headers['Access-Control-Request-Method'] = '*'
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
