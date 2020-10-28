@@ -39,7 +39,11 @@ class ProxiesController < ApplicationController
   end
 
   def assign_result
-    @result = ProxyRequest.new(proxy: @proxy, body: params).run!
+    @result = ProxyRequest.new(proxy: @proxy, body: params_data).run!
+  end
+
+  def params_data
+    params.permit(:data)
   end
 
   def set_headers
