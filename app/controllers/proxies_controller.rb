@@ -43,7 +43,7 @@ class ProxiesController < ApplicationController
   end
 
   def params_data
-    params.permit(:data)
+    params.require(:data).permit! if params[:data].present?
   end
 
   def set_headers

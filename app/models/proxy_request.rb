@@ -47,7 +47,11 @@ class ProxyRequest
       })
 
     when 'delete'
-      HTTParty.delete(url, options)
+      HTTParty.delete(url, {
+        body: body,
+        headers: headers
+      })
+
     end
   end
 end

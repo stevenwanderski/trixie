@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 
   get '/proxies/:user_slug/:proxy_slug', to: 'proxies#get'
   post '/proxies/:user_slug/:proxy_slug', to: 'proxies#post'
+  put '/proxies/:user_slug/:proxy_slug', to: 'proxies#put'
+  patch '/proxies/:user_slug/:proxy_slug', to: 'proxies#patch'
+  delete '/proxies/:user_slug/:proxy_slug', to: 'proxies#delete'
   match '/proxies/:user_slug/:proxy_slug', to: 'proxies#post', via: :options
 
   namespace :dashboard do
