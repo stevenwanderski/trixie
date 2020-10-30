@@ -18,6 +18,7 @@
 
   &.error {
     border-color: $red;
+    margin-bottom: 5px;
   }
 }
 
@@ -34,6 +35,11 @@
 
   &:focus {
     outline: none;
+  }
+
+  &.error {
+    border-color: $red;
+    margin-bottom: 5px;
   }
 }
 

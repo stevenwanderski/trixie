@@ -1,0 +1,61 @@
+<section class="home-section home-section--gray">
+  <h2>How it Works</h2>
+
+  <h3>Without Trixie</h3>
+
+  <div class="examples">
+    <div class="example-col">
+      <div class="code-sample">
+        <div class="title">JS in browser</div>
+
+        <div class="code">
+          <code>
+            fetch('https://api.mailchimp.com/lists');
+          </code>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-col">
+      <div class="code-sample">
+        <div class="title">Response 🚫</div>
+
+        <div class="code">
+          <code>
+            Access to fetch at 'https://api.mailchimp.com/lists' from origin 'http://localhost:3000' has been blocked by CORS policy
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="example-title">With Trixie</h3>
+
+  <div class="examples">
+    <div class="example-col">
+      <div class="code-sample">
+        <div class="title">JS in browser</div>
+
+        <div class="code">
+          <code>
+            fetch('https://trixieapp.com/me/mailchimp-lists');
+          </code>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-col">
+      <div class="code-sample">
+        <div class="title">Response ✅</div>
+
+        <div class="code">
+          <code>
+            {
+              lists: [{ id: 1, name: "List"}]
+            }
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

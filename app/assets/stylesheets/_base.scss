@@ -9,7 +9,7 @@ h3 {
 }
 
 body {
-  font-family: $font-primary;
+  font-family: $font-secondary;
 }
 
 pre {
@@ -21,6 +21,12 @@ hr {
   border-bottom: solid $gray-light 1px;
   padding-bottom: 20px;
   margin-bottom: 20px;
+}
+
+h1,
+h2,
+h3 {
+  font-family: $font-primary;
 }
 
 h1 {
